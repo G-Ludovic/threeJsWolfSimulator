@@ -8,12 +8,11 @@
 /* Fond général sombre type jeu */
 body {
   font-family: 'Press Start 2P', monospace, sans-serif;
-  background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%);
   color: #00ffcc;
   overflow: hidden;
 }
 
-/* Section présentation */
+/* Présentation */
 article {
   position: fixed;
   top: 20px;
@@ -36,7 +35,7 @@ article h1 {
   text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffaa;
 }
 
-/* Texte */
+/* Texte style rétro */
 article p {
   font-size: 0.65rem;
   margin: 5px 0;
@@ -44,7 +43,7 @@ article p {
   line-height: 1.4;
 }
 
-/* Liste */
+/* Liste instruction */
 article ul {
   margin: 8px 0;
   padding-left: 18px;
@@ -93,6 +92,46 @@ label {
   margin-bottom: 4px;
   color: #00ffaa;
   text-shadow: 0 0 5px #00ffcc;
+}
+
+/* Conteneur des sliders / selects */
+.slider-group {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Press Start 2P', cursive;
+  color: #fff;
+}
+
+.slider-group label {
+  margin-bottom: 5px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Select stylisé */
+#furTexture {
+  background-color: #1b1b1b;
+  color: #fff;
+  border: 2px solid #0ff;
+  border-radius: 5px;
+  padding: 6px 10px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+#furTexture:hover {
+  border-color: #0f0;
+  background-color: #222;
+}
+
+/* Focus */
+#furTexture:focus {
+  outline: none;
+  box-shadow: 0 0 10px #0ff;
 }
 
 /* Sliders type jeu */

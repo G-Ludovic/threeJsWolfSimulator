@@ -12,12 +12,6 @@
 
 <body>
 
-  <header>
-    <h1>
-
-    </h1>
-  </header>
-
   <article>
     <h1>Wolf Style Simulator</h1>
     <p>Utilisation de Three.js pour afficher et animer un modèle 3D interactif.</p>
@@ -43,7 +37,25 @@
 
     <div class="slider-group">
       <label for="lightSlider">Intensité lumière</label>
-      <input type="range" id="lightSlider" min="0" max="1000" step="0.1" value="5">
+      <input type="range" id="lightSlider" min="0" max="250" step="0.1" value="5">
+    </div>
+
+    <!-- <div class="slider-group">
+      <label for="furColor">Couleur de Fourrure</label>
+      <input type="color" id="furColor" value="#ffffff">
+    </div> -->
+
+    <div class="slider-group">
+      <label for="furTexture">Texture fourrure</label>
+      <select id="furTexture">
+        <option value="Fur_silver_grey.png" selected>Gris silver</option>
+        <option value="Fur_martre.png">Marbré Blanc</option>
+        <option value="Fur_silver.png">Blanc Argentée</option>
+        <option value="Wolf_Fur.jpg">Kami Sauvage</option>
+        <option value="Fur_Rosettes_noires.png">Rosettes noires</option>
+        <option value="Fur_silver_black.png">Noir Argentée</option>
+        <option value="Fur_black.png">Noir sauvage</option>
+      </select>
     </div>
 
     <div class="slider-group">
@@ -55,6 +67,7 @@
 
   <!-- Script -->
   <script type="module" src="index.js"></script>
+
 </body>
 
 </html>

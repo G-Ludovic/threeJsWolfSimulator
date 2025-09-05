@@ -1,60 +1,49 @@
+import * as THREE from 'three';
+
 export class Controller {
   constructor(model, view) {
     this.model = model;
     this.view = view;
-
     this.bindUI();
   }
 
   bindUI() {
-    const view = this.view;
     const model = this.model;
+    const view = this.view;
 
-    // Bouton rotation
     const btn = document.getElementById('toggleRotation');
     if (btn) {
       btn.textContent = '⏸ Stop rotation';
       btn.addEventListener('click', () => {
         model.toggleRotation();
-        btn.textContent = model.getRotateState()
-          ? '⏸ Stop rotation'
-          : '▶ Start rotation';
+        btn.textContent = model.getRotateState() ? '⏸ Stop rotation' : '▶ Start rotation';
       });
     }
 
-    // Slider vitesse rotation
     const speedSlider = document.getElementById('speedSlider');
-    if (speedSlider) {
-      speedSlider.addEventListener('input', (e) => {
-        model.setRotationSpeed(parseFloat(e.target.value));
-      });
-    }
+    if (speedSlider) speedSlider.addEventListener('input', (e) => model.setRotationSpeed(parseFloat(e.target.value)));
 
-    // Slider intensité lumière
     const lightSlider = document.getElementById('lightSlider');
-    if (lightSlider) {
-      lightSlider.addEventListener('input', (e) => {
-        model.setLightIntensity(parseFloat(e.target.value));
-      });
-    }
+    if (lightSlider) lightSlider.addEventListener('input', (e) => model.setLightIntensity(parseFloat(e.target.value)));
 
-    // Sélecteur couleur fond + bouton appliquer
-    let chosenColor = '#000000'; // couleur par défaut
+    // Fond
+    let bgColor = '#222222';
     const bgColorInput = document.getElementById('bgColor');
     const applyBtn = document.getElementById('applyBgColor');
+    if (bgColorInput) bgColorInput.addEventListener('input', (e) => bgColor = e.target.value);
+    if (applyBtn) applyBtn.addEventListener('click', () => view.setBackgroundColor(bgColor));
 
-    if (bgColorInput) {
-      bgColorInput.addEventListener('input', (e) => {
-        chosenColor = e.target.value; // stocke la couleur choisie
-      });
-    }
+    // Couleur fourrure
+    // const furColorInput = document.getElementById('furColor');
+    // if (furColorInput) furColorInput.addEventListener('input', (e) => model.setFurColor(e.target.value));
 
-    if (applyBtn) {
-      applyBtn.addEventListener('click', () => {
-        view.setBackgroundColor(chosenColor);
+    // Texture fourrure
+    const furTextureSelect = document.getElementById('furTexture');
+    if (furTextureSelect) {
+      furTextureSelect.addEventListener('change', (e) => {
+        model.setFurTexture(e.target.value);
       });
     }
   }
-}  
-    
+}
 
