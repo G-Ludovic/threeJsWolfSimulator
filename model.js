@@ -5,11 +5,13 @@ export class Model {
   constructor() {
     this.wolf = null;
     this.rotateWolf = true;
+    this.rotationSpeed = 0.005; // par défaut
+    this.lightIntensity = 5;     // par défaut
 
     this.objLoader = new OBJLoader();
   }
 
-  loadWolf(pathObj = './models/Wolf_obj.obj', texturePath = './textures/Wolf_Fur.jpg') {
+  loadWolf(pathObj = './models/Wolf_obj.obj', texturePath = './textures/Wolf_Body.jpg') {
     return new Promise((resolve, reject) => {
       this.objLoader.load(
         pathObj,
@@ -20,7 +22,8 @@ export class Model {
               child.material = new THREE.MeshPhongMaterial({ map: texture });
             }
           });
-          object.scale.set(2.5, 2.5, 2.5);
+
+          object.scale.set(3, 3, 3);
           object.position.set(0, 0, 0);
 
           this.wolf = object;
@@ -36,7 +39,16 @@ export class Model {
     this.rotateWolf = !this.rotateWolf;
   }
 
+  setRotationSpeed(speed) {
+    this.rotationSpeed = speed;
+  }
+
+  setLightIntensity(intensity) {
+    this.lightIntensity = intensity;
+  }
+
   getRotateState() {
     return this.rotateWolf;
   }
 }
+

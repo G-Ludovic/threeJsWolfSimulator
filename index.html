@@ -5,17 +5,52 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image/png" href="/logo/wolfLogo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Animation d'un loup</title>
+  <title>Wolf Style Simulator</title>
   <link rel="stylesheet" href="index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 
 <body>
+
+  <header>
+    <h1>
+
+    </h1>
+  </header>
+
+  <article>
+    <h1>Wolf Style Simulator</h1>
+    <p>Utilisation de Three.js pour afficher et animer un modèle 3D interactif.</p>
+    <p>Contrôles:</p>
+    <ul>
+      <li>Molette pour zoomer/dézoomer</li>
+      <li>Maintenir click droit et déplacer le personnage avec la souris</li>
+      <li>Maintenir click gauche et glisser pour faire tourner la vue</li>
+    </ul>
+  </article>
+
   <!-- Canvas 3D -->
   <canvas class="myWebGL3d"></canvas>
 
   <!-- UI Overlay -->
   <div class="ui">
-    <button type="button" id="toggleRotation">⏸ Stop rotation</button>
+    <button id="toggleRotation">⏸ Stop rotation</button>
+
+    <div class="slider-group">
+      <label for="speedSlider">Vitesse rotation</label>
+      <input type="range" id="speedSlider" min="0" max="0.05" step="0.001" value="0.005">
+    </div>
+
+    <div class="slider-group">
+      <label for="lightSlider">Intensité lumière</label>
+      <input type="range" id="lightSlider" min="0" max="1000" step="0.1" value="5">
+    </div>
+
+    <div class="slider-group">
+      <label for="bgColor">Couleur de fond</label>
+      <input type="color" id="bgColor" value="#000000">
+      <button id="applyBgColor">Appliquer</button>
+    </div>
   </div>
 
   <!-- Script -->
