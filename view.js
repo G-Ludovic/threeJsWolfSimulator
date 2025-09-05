@@ -4,6 +4,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 export class View {
   constructor(model) {
     this.model = model;
+
     this.canvas = document.querySelector('canvas.myWebGL3d');
     this.scene = new THREE.Scene();
     this.scene.background = new THREE.Color(0x222222);
@@ -36,6 +37,12 @@ export class View {
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
     this.controls.enableDamping = true;
     this.controls.target.set(0, 1, 0);
+
+    // Limites pour rester focus
+    this.controls.minDistance = 2;
+    this.controls.maxDistance = 10;
+    this.controls.minPolarAngle = 0.3;   // évite de passer sous le modèle
+    this.controls.maxPolarAngle = Math.PI / 2; // évite de trop regarder du dessus
 
     // Resize
     window.addEventListener('resize', () => {
