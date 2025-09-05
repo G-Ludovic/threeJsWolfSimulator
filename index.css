@@ -1,44 +1,140 @@
-/* Reset global de base */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Le body occupe toute la fenêtre */
+/* Fond général sombre type jeu */
 body {
-  width: 100vw;
-  height: 100vh;
+  font-family: 'Press Start 2P', monospace, sans-serif;
+  background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%);
+  color: #00ffcc;
   overflow: hidden;
-  font-family: sans-serif;
+}
+
+/* Section présentation */
+article {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 320px;
+  background: rgba(10, 10, 10, 0.85);
+  border: 2px solid #00ffcc;
+  border-radius: 10px;
+  padding: 15px;
+  z-index: 10;
+  box-shadow: 0 0 15px #00ffcc;
+}
+
+/* Titre style néon */
+article h1 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #00ffcc;
+  text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffaa;
+}
+
+/* Texte */
+article p {
+  font-size: 0.65rem;
+  margin: 5px 0;
+  color: #ccc;
+  line-height: 1.4;
+}
+
+/* Liste */
+article ul {
+  margin: 8px 0;
+  padding-left: 18px;
+  font-size: 0.6rem;
+  color: #00ffaa;
+}
+
+article li {
+  margin: 3px 0;
 }
 
 /* Canvas plein écran */
-canvas {
+canvas.myWebGL3d {
   display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
+  z-index: 0;
 }
 
-/* UI Overlay (au-dessus du canvas) */
+/* UI Overlay style HUD */
 .ui {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(10, 10, 10, 0.8);
+  border: 2px solid #00ffcc;
+  border-radius: 10px;
+  padding: 15px;
+  width: 260px;
+  z-index: 10;
+  box-shadow: 0 0 15px #00ffcc;
 }
 
-.ui button {
-  width: 200px;
-  padding: 10px 20px;
-  font-size: 15px;
-  border: none;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.8);
+/* Groupes sliders */
+.slider-group {
+  margin: 15px 0;
+}
+
+/* Labels style retro */
+label {
+  display: block;
+  font-size: 0.65rem;
+  margin-bottom: 4px;
+  color: #00ffaa;
+  text-shadow: 0 0 5px #00ffcc;
+}
+
+/* Sliders type jeu */
+input[type="range"] {
+  width: 100%;
+  accent-color: #00ffcc;
+  background: #111;
+  border-radius: 5px;
+  outline: none;
   cursor: pointer;
 }
 
-.ui:hover {
-  background: rgba(200, 200, 200, 1);
-  border-radius: 8px;
+/* Boutons style néon */
+button {
+  display: inline-block;
+  padding: 8px 12px;
+  margin-top: 5px;
+  font-size: 0.7rem;
+  font-family: inherit;
+  color: #000;
+  background: #00ffcc;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffaa;
+  transition: transform 0.2s, background 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: #00ffaa;
+  box-shadow: 0 0 15px #00ffaa, 0 0 25px #00ffcc;
+}
+
+/* Color picker */
+input[type="color"] {
+  margin-top: 5px;
+  width: 100%;
+  height: 30px;
+  border: 2px solid #00ffcc;
+  border-radius: 5px;
+  cursor: pointer;
+  background: transparent;
 }
