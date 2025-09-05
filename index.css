@@ -1,0 +1,44 @@
+/* Reset global de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Le body occupe toute la fenêtre */
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+/* Canvas plein écran */
+canvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* UI Overlay (au-dessus du canvas) */
+.ui {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ui button {
+  width: 200px;
+  padding: 10px 20px;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+}
+
+.ui:hover {
+  background: rgba(200, 200, 200, 1);
+  border-radius: 8px;
+}
